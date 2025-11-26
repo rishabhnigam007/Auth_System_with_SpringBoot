@@ -1,0 +1,30 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: auth-app
+  datasource:
+    url: jdbc:mysql://localhost:3306/authdb
+    username: root
+    password: 1234
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+    show-sql: true
+  #  security:
+  #    jwt:
+  #      secret: mysecretkey
+  #      expiration: 36000
+  profiles:
+    active: dev
+#  hikari:
+#    pool-name: AuthHikariCP
+#    maximum-pool-size: 10
+#    minimum-idle: 5
+#    idle-timeout: 30000
+#    max-lifetime: 1800000
+#    connection-timeout: 30000
