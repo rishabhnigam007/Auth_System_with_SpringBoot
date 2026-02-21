@@ -19,8 +19,8 @@ spring:
   #    jwt:
   #      secret: mysecretkey
   #      expiration: 36000
-  profiles:
-    active: dev
+#  profiles:
+#    active: dev
 #  hikari:
 #    pool-name: AuthHikariCP
 #    maximum-pool-size: 10
