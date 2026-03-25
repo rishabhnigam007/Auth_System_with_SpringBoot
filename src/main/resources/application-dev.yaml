@@ -1,3 +1,30 @@
 #Development version of the application configuration
 server:
   port: 8081
+
+spring:
+  application:
+    name: auth-app
+  datasource:
+    url: jdbc:mysql://localhost:3306/authdb
+    username: root
+    password: 1234
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+    show-sql: true
+
+security:
+  jwt:
+    secret: ${JWT_SECRET:mysecretkey}
+    issuer: ${JWT_ISSUER:auth-app}
+    access-ttl-seconds: ${Jwt_Access_TTL_SECONDS:3600}
+    refresh-ttl-seconds: ${Jwt_Refresh_TTL_SECONDS:86400}
+    refresh-token-cookie-name: ${JWT_REFRESH_COOKIE_NAME:refreshToken}
+    cookie-secure: ${JWT_COOKIE_SECURE:true}
+    cookie-http-only: ${JWT_COOKIE_HTTP_ONLY:true}
+    cookie-same-site: ${JWT_COOKIE_SAME_SITE:lax}
