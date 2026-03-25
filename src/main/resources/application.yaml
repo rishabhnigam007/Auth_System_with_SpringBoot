@@ -15,16 +15,14 @@ spring:
       hibernate:
         format_sql: true
     show-sql: true
-  #  security:
-  #    jwt:
-  #      secret: mysecretkey
-  #      expiration: 36000
-#  profiles:
-#    active: dev
-#  hikari:
-#    pool-name: AuthHikariCP
-#    maximum-pool-size: 10
-#    minimum-idle: 5
-#    idle-timeout: 30000
-#    max-lifetime: 1800000
-#    connection-timeout: 30000
+
+security:
+  jwt:
+    secret: ${JWT_SECRET:mysecretkey}
+    issuer: ${JWT_ISSUER:auth-app}
+    access-ttl-seconds: ${Jwt_Access_TTL_SECONDS:3600}
+    refresh-ttl-seconds: ${Jwt_Refresh_TTL_SECONDS:86400}
+    refresh-token-cookie-name: ${JWT_REFRESH_COOKIE_NAME:refreshToken}
+    cookie-secure: ${JWT_COOKIE_SECURE:true}
+    cookie-http-only: ${JWT_COOKIE_HTTP_ONLY:true}
+    cookie-same-site: ${JWT_COOKIE_SAME_SITE:lax}
